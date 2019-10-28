@@ -23,7 +23,7 @@ void loop() {
   digitalWrite(triggerL, LOW);
   distance_from_targetR = pulseIn(inputR, HIGH); /*takes the integer from the sensor */
   distance_from_targetL = pulseIn(inputL, HIGH);
-  if ((distance_from_targetR <= 15) and (distance_from_targetR > 0)){ /*asks whether the distane is in the range */
+  if ((distance_from_targetR <= 15) and (distance_from_targetR > 5)){ /*asks whether the distane is in the range */
     digitalWrite(7, HIGH);  /*puts the led on high*/
     delay (100);            /*delays it for 100 microseconds*/
     digitalWrite(7, LOW);
@@ -37,7 +37,7 @@ void loop() {
     digitalWrite(4, LOW);
     delay(300);
   }
-  if ((distance_from_targetL <= 15) and (distance_from_targetL > 0)){
+  if ((distance_from_targetL <= 15) and (distance_from_targetL > 5)){
     digitalWrite(4, HIGH);
     delay (100);
     digitalWrite(4, LOW);
