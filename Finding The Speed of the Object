@@ -1,0 +1,17 @@
+int echo = 5;
+int trig = 7;
+int speed_of_object;
+void setup(){
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  
+}
+void loop(){
+  digitalWrite(trig,LOW);
+  delayMicroseconds(1);
+  digitalWrite(trig,HIGH);
+  delayMicroseconds(1);
+  digitalWrite(trig,LOW);
+  delayMicroseconds(1);
+  speed_of_object = pulseIn(echo, HIGH);
+}
