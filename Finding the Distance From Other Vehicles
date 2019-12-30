@@ -25,8 +25,8 @@ void loop() {
   digitalWrite(triggerL, LOW);
   time_takesR = pulseIn(inputR, HIGH); /*takes the integer from the sensor */
   time_takesL = pulseIn(inputL, HIGH);
-  (time_takesR/2)/74
-  distance_from_targetR = (time_takesR/2)/74                /* "/2 /74" converts to inches, then I have to multiply by 12 to get feet
+  distance_from_targetL = ((time_takesL/2)/74)*12;
+  distance_from_targetR = ((time_takesR/2)/74)*12;                /* "/2 /74" converts to inches, then I have to multiply by 12 to get feet*/
   if ((distance_from_targetR <= 15) and (distance_from_targetR > 5)){ /*asks whether the distane is in the range */
     digitalWrite(7, HIGH);  /*puts the led on high*/
     delay (100);            /*delays it for 100 microseconds*/
