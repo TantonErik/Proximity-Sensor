@@ -6,6 +6,7 @@ int distance_from_targetR; /*Defines that the variable is an integer*/
 int distance_from_targetL; 
 int time_takesR;
 int time_takesL;
+
 void setup() {
   pinMode(inputR, INPUT); /*Defines that the pin is an integer input*/
   pinMode(inputL, INPUT); 
@@ -27,6 +28,8 @@ void loop() {
   time_takesL = pulseIn(inputL, HIGH);
   distance_from_targetL = ((time_takesL/2)/74)*12;
   distance_from_targetR = ((time_takesR/2)/74)*12;                /* "/2 /74" converts to inches, then I have to multiply by 12 to get feet*/
+  serial.print(distance_from_targetL + " feet");                  /*Hopefully will print out the units with the distance to serial*/
+  serial.print(distance_from_targetR + " feet");
   if ((distance_from_targetR <= 15) and (distance_from_targetR > 5)){ /*asks whether the distane is in the range */
     digitalWrite(7, HIGH);  /*puts the led on high*/
     delay (100);            /*delays it for 100 microseconds*/
