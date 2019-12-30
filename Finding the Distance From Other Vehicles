@@ -4,6 +4,8 @@ int triggerR = 12; /*Defines which PWM port the right sensor's "Trig" pin is in 
 int triggerL = 13
 int distance_from_targetR; /*Defines that the variable is an integer*/
 int distance_from_targetL; 
+int time_takesR;
+int time_takesL;
 void setup() {
   pinMode(inputR, INPUT); /*Defines that the pin is an integer input*/
   pinMode(inputL, INPUT); 
@@ -15,14 +17,16 @@ void setup() {
 void loop() {
   digitalWrite(triggerR, LOW);  /*The sensor uses a Trigger from the arduino when it wants to know the distance*/
   digitalWrite(triggerL, LOW);  /*we want it to start out on low so that it does not give us a false reading*/
-  delayMicroseconds(10);      
+  delayMicroseconds(10);       
   digitalWrite(triggerR, HIGH); /*puts the trigger on high so we get a reading*/
   digitalWrite(triggerL, HIGH);
   delayMicroseconds(10);
   digitalWrite(triggerR, LOW);  /*sets it back to low so we don't get a false reading*/
   digitalWrite(triggerL, LOW);
-  distance_from_targetR = pulseIn(inputR, HIGH); /*takes the integer from the sensor */
-  distance_from_targetL = pulseIn(inputL, HIGH);
+  time_takesR = pulseIn(inputR, HIGH); /*takes the integer from the sensor */
+  time_takesL = pulseIn(inputL, HIGH);
+  (time_takesR/2)/74
+  distance_from_targetR = (time_takesR/2)/74                /* "/2 /74" converts to inches, then I have to multiply by 12 to get feet
   if ((distance_from_targetR <= 15) and (distance_from_targetR > 5)){ /*asks whether the distane is in the range */
     digitalWrite(7, HIGH);  /*puts the led on high*/
     delay (100);            /*delays it for 100 microseconds*/
